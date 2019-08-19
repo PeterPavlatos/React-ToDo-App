@@ -1,0 +1,75 @@
+body {
+  background: #fff
+}
+.App {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: center;
+  border:1px solid #eee;
+}
+.navbar {
+  padding: 10px 20px;
+  background: #ccc;
+  border:1px solid #eee;
+}
+.navbar ul {
+  padding: 0;
+}
+.navbar ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.tasklist {
+  padding: 0 30px;
+  margin-bottom: 20px;
+}
+.tasklist ol {
+  padding: 0;
+  
+}
+.tasklist li {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 4px;
+  cursor:pointer;
+  border-bottom:1px solid #eee;
+}
+.tasklist li:hover {
+  opacity:0.8;
+  text-decoration: line-through;
+}
+.tasklist .title {
+  font-size:1.2em;
+  font-weight: bold;
+}
+.tasklist .user {
+  font-size:0.9em;
+}
+.empty {
+  margin:20px;
+  padding:20px;
+  text-align: center;
+  background:#fff;
+}
+
+form {
+  padding: 20px;
+}
+form input[type='text']{
+ width:100%;
+ padding:10px;
+ box-sizing: border-box;
+ margin:6px 0;
+}
+form .submitBtn {
+  padding:12px 20px;
+  margin:10px auto;
+  display:block;
+  background: green;
+  color:#fff;
+  border:0;
+  border-radius: 4px;
+  cursor:pointer;
+}
+
