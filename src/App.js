@@ -5,6 +5,7 @@ import TaskList from './components/TaskList';
 import AuthContextProvider from './contexts/AuthContext';
 import TaskContextProvider from './contexts/TaskContext';
 import NewTaskForm from './components/TaskForm';
+import ToggleFormContextProvider from './contexts/ThemeContxt';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
           <TaskContextProvider>
             <Navbar />
             <TaskList />
-            <NewTaskForm />
+            <ToggleFormContextProvider>
+              <NewTaskForm />
+            </ToggleFormContextProvider>
           </TaskContextProvider>
         </AuthContextProvider>
     </div>

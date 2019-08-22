@@ -1,25 +1,23 @@
 import React, { createContext, Component } from 'react'
 
-export const ThemeContext = createContext();
+export const ToggleFormContext = createContext();
    
-class ThemeContextProvider extends Component {
+class ToggleFormContextProvider extends Component {
     state = {
-        isLightTheme: true,
-        light: { syntax: '#555', ui: '#ddd', bg: '#eee' },
-        dark: { syntax: '#ddd', ui: '#333', bg: '#555' }
+        toggleAddTaskForm: false
     }
-    toggleTheme = () => {
-        this.setState({ isLightTheme: !this.state.isLightTheme});
+    toggleForm = () => {
+        this.setState({ toggleAddTaskForm: !this.state.toggleAddTaskForm});
     }
 
     render() {
         return (
-            <ThemeContext.Provider value={{...this.state, toggleTheme: this.toggleTheme}}>
+            <ToggleFormContext.Provider value={{...this.state, toggleForm: this.toggleForm}}>
                 {this.props.children}
-            </ThemeContext.Provider>
+            </ToggleFormContext.Provider>
         )
     }
 }
 
-export default ThemeContextProvider
+export default ToggleFormContextProvider
 
