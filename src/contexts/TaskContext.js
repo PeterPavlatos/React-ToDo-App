@@ -6,7 +6,7 @@ export const TaskContext = createContext();
 const TaskContextProvider = (props) => {
     const [tasks, setTasks] = useState([
         {title: 'Bring kids to school', user: "Peter", id: 1},
-        {title: 'Buy present for birthday', user: "Peter", id: 2},
+        {title: 'Buy present for wife\'s birthday', user: "Peter", id: 2},
         {title: 'Get milk', user: "Peter", id: 3},
         {title: 'Do a workout', user: "Peter", id: 4}
     ]);

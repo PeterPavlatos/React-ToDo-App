@@ -1,14 +1,23 @@
 import React, {useContext, useState} from 'react'
 import { TaskContext } from '../contexts/TaskContext';
 import { ToggleFormContext } from '../contexts/ThemeContxt';
+import { Collapse } from 'reactstrap';
 
 const NewTaskForm = () => {
     const { addTask } = useContext(TaskContext);
-    const { toggleForm, toggleAddTaskForm } = useContext(ToggleFormContext);
+    const { toggleForm, collapse } = useContext(ToggleFormContext);
     const [title, setTitle] = useState('');
     const [user, setUser] = useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(!title ){
+            alert("Need a title!");
+            return;
+        }
+        if(!user ){
+            alert("Need a user!");
+            return;
+        }
         addTask(title, user);
         setTitle('');
         setUser('');
@@ -18,29 +27,28 @@ const NewTaskForm = () => {
         toggleForm();
     }
 
-    const buttonText = toggleAddTaskForm ? (
-        "Add a Task"
-        ) : (
+    const buttonText = collapse ? (
             "Hide Form"
+        ) : (
+            "Add a Task"
         );
 
-    const form = toggleAddTaskForm ? (
-        ""
-        ) : (
-            <form className="taskForm" onSubmit={handleSubmit}>
-                <label >Title</label>
-                <input type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
-                <label >User</label>
-                <input type="text" name="user" value={user} onChange={(e) => setUser(e.target.value)} required />
-                <input type="submit" className="submitBtn" value="Add task"/>
-            </form>
-        );
+    const form =  <form className="taskForm" onSubmit={handleSubmit}>
+            <label >Title</label>
+            <input type="text" className="form-control" name="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+            <label >User</label>
+            <input type="text" className="form-control" name="user" value={user} onChange={(e) => setUser(e.target.value)} required />
+            <button className="btn btn-primary" onClick={handleSubmit}  style={{ marginBottom: '1rem' }}>Submit</button>
+        </form>;
+        
     return (
         <>
-            <button className="btnToggleForm" onClick={handleOnClick}>
+            <button className="btn btn-primary btnToggleForm" onClick={handleOnClick}>
                 { buttonText }
             </button>
-            { form }
+            <Collapse isOpen={collapse}>
+                { form }
+            </Collapse>
         </>
     )
 }

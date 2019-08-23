@@ -4,10 +4,10 @@ export const ToggleFormContext = createContext();
    
 class ToggleFormContextProvider extends Component {
     state = {
-        toggleAddTaskForm: false
+        collapse: false
     }
     toggleForm = () => {
-        this.setState({ toggleAddTaskForm: !this.state.toggleAddTaskForm});
+        this.setState({ collapse: !this.state.collapse});
     }
 
     render() {
